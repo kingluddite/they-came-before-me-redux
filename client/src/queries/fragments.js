@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 
 export const genealogyFragments = {
   genealogy: gql`
-    fragment CompleteGenealogy on Recipe {
+    fragment CompleteGenealogy on Genealogy {
       _id
       firstName
       lastName
