@@ -71,6 +71,7 @@ if (process.env.NODE_ENV !== 'production') {
   // Create GraphiQL application
   app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 }
+
 // Connect schemas with GraphQL
 app.use(
   '/graphql',
