@@ -66,12 +66,15 @@ exports.resolvers = {
   Mutation: {
     addGenealogy: async (
       root,
-      { firstName, lastName, description, username },
+      { firstName, lastName, imageUrl, category, description, username },
       { Genealogy }
     ) => {
+      // constructor
       const newGenealogy = await new Genealogy({
         firstName,
         lastName,
+        imageUrl,
+        category,
         description,
         username,
       }).save();

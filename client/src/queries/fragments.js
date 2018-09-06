@@ -6,8 +6,10 @@ export const genealogyFragments = {
       _id
       firstName
       lastName
-      createdDate
+      imageUrl
+      category
       description
+      createdDate
       likes
       username
     }

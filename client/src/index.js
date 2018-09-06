@@ -23,7 +23,7 @@ import GenealogyPage from './components/Genealogy/GenealogyPage';
 // uri: 'http://localhost:4444/graphql'
 
 const client = new ApolloClient({
-  uri: 'https://protected-ravine-56983.herokuapp.com/graphql',
+  uri: 'http://localhost:4444/graphql',
   fetchOptions: {
     credentials: 'include',
   },

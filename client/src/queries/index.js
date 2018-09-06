@@ -9,6 +9,8 @@ export const GET_ALL_GENEALOGIES = gql`
       _id
       firstName
       lastName
+      imageUrl
+      category
     }
   }
 `;
@@ -39,17 +41,23 @@ export const ADD_GENEALOGY = gql`
   mutation(
     $firstName: String!
     $lastName: String!
+    $imageUrl: String!
+    $category: String!
     $description: String
     $username: String
   ) {
     addGenealogy(
       firstName: $firstName
       lastName: $lastName
+      imageUrl: $imageUrl
+      category: $category
       description: $description
       username: $username
     ) {
       firstName
       lastName
+      imageUrl
+      category
       description
     }
   }

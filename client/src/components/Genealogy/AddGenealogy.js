@@ -18,6 +18,8 @@ import {
 const initialState = {
   firstName: '',
   lastName: '',
+  imageUrl: '',
+  category: 'Family',
   description: '',
   username: '',
 };
@@ -60,8 +62,9 @@ class AddGenealogy extends Component {
   };
 
   validateForm = () => {
-    const { firstName, lastName, description } = this.state;
-    const isInvalid = !firstName || !lastName || !description;
+    const { firstName, lastName, imageUrl, category, description } = this.state;
+    const isInvalid =
+      !firstName || !lastName || !imageUrl || !category || !description;
     return isInvalid;
   };
 
@@ -82,12 +85,26 @@ class AddGenealogy extends Component {
   };
 
   render() {
-    const { firstName, lastName, description, username } = this.state;
+    const {
+      firstName,
+      lastName,
+      imageUrl,
+      category,
+      description,
+      username,
+    } = this.state;
 
     return (
       <Mutation
         mutation={ADD_GENEALOGY}
-        variables={{ firstName, lastName, description, username }}
+        variables={{
+          firstName,
+          lastName,
+          imageUrl,
+          category,
+          description,
+          username,
+        }}
         refetchQueries={() => [
           {
             query: GET_USER_GENEALOGIES,
@@ -122,6 +139,24 @@ class AddGenealogy extends Component {
                   onChange={this.handleChange}
                   value={lastName}
                 />
+                <input
+                  type="text"
+                  name="imageUrl"
+                  placeholder="Genealogy Image"
+                  onChange={this.handleChange}
+                  value={imageUrl}
+                />
+                <select
+                  name="category"
+                  onChange={this.handleChange}
+                  value={category}
+                >
+                  <option value="Family">Family</option>
+                  <option value="Church">Church</option>
+                  <option value="Ethnic">Ethnic</option>
+                  <option value="Historic">Historic</option>
+                  <option value="Miscellany">Miscellany</option>
+                </select>
                 <textarea
                   name="description"
                   placeholder="Add Description"
