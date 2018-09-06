@@ -105,7 +105,7 @@ export const LIKE_GENEALOGY = gql`
 export const UNLIKE_GENEALOGY = gql`
   mutation($_id: ID!, $username: String!) {
     unlikeGenealogy(_id: $_id, username: $username) {
-      ${genealogyFragments.like}
+      ...LikeGenealogy
     }
   }
   ${genealogyFragments.like}
