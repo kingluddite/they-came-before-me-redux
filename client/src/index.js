@@ -20,9 +20,10 @@ import AddGenealogy from './components/Genealogy/AddGenealogy';
 import Profile from './components/Profile/Profile';
 import GenealogyPage from './components/Genealogy/GenealogyPage';
 
+// uri: 'http://localhost:4444/graphql'
+
 const client = new ApolloClient({
-  // uri: 'http://localhost:4444/graphql',
-  uri: 'https://react-apollo-recipes.herokuapp.com/graphql'
+  uri: 'https://protected-ravine-56983.herokuapp.com/graphql',
   fetchOptions: {
     credentials: 'include',
   },
