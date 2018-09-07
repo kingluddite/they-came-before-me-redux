@@ -108,6 +108,7 @@ export class LikeGenealogy extends Component {
                   onClick={() =>
                     this.handleClick(likeGenealogy, unlikeGenealogy)
                   }
+                  className="like-button"
                 >
                   {liked ? 'Unlike' : 'Like'}
                 </button>

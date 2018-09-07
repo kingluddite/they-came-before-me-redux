@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import CKEditor from 'react-ckeditor-component';
+import Spinner from '../Spinner';
+
 import withAuth from '../withAuth';
 
 // components
@@ -50,6 +53,11 @@ class AddGenealogy extends Component {
     this.setState({
       [name]: value,
     });
+  };
+
+  handleEditorChange = event => {
+    const newContent = event.editor.getData();
+    this.setState({ description: newContent });
   };
 
   handleSubmit = (event, addGenealogy) => {
@@ -114,7 +122,7 @@ class AddGenealogy extends Component {
         update={this.updateCache}
       >
         {(addGenealogy, { data, loading, error }) => {
-          if (loading) return <div>Loading...</div>;
+          if (loading) return <Spinner />;
           if (error) return <div>Error</div>;
           // console.log(data);
 
@@ -157,12 +165,18 @@ class AddGenealogy extends Component {
                   <option value="Historic">Historic</option>
                   <option value="Miscellany">Miscellany</option>
                 </select>
-                <textarea
+                <label htmlFor="description">Add Description</label>
+                <CKEditor
+                  name="description"
+                  content={description}
+                  events={{ change: this.handleEditorChange }}
+                />
+                {/* <textarea
                   name="description"
                   placeholder="Add Description"
                   onChange={this.handleChange}
                   value={description}
-                />
+                /> */}
                 <button
                   type="submit"
                   className="button-primary"

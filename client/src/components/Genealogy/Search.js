@@ -29,6 +29,7 @@ class Search extends Component {
                 type="search"
                 name="search"
                 id="search"
+                className="search"
                 placeholder="Search for Genealogies"
                 onChange={async event => {
                   event.persist();

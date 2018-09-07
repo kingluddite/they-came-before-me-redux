@@ -21,9 +21,9 @@ import Profile from './components/Profile/Profile';
 import GenealogyPage from './components/Genealogy/GenealogyPage';
 
 // uri: 'http://localhost:4444/graphql'
-
+// uri (prod): https://protected-ravine-56983.herokuapp.com/
 const client = new ApolloClient({
-  uri: 'http://localhost:4444/graphql',
+  uri: 'https://protected-ravine-56983.herokuapp.com/graphql',
   fetchOptions: {
     credentials: 'include',
   },
@@ -37,7 +37,8 @@ const client = new ApolloClient({
   },
   onError: ({ networkError }) => {
     if (networkError) {
-      console.log('Network Error', networkError);
+      // console.log('Network Error', networkError);
+      localStorage.setItem('token', '');
     }
   },
 });

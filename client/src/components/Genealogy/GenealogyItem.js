@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import pose from 'react-pose';
 
-const GenealogyItem = ({ _id, firstName, lastName, imageUrl, category }) => {
+const GenealogyItem = pose.li({
+  shown: { opacity: 1 },
+  hidden: { opacity: 0 },
+});
+
+export default ({ _id, firstName, lastName, imageUrl, category }) => {
   return (
-    <li
+    <GenealogyItem
       style={{
         background: `url(${imageUrl}) center center / cover no-repeat`,
       }}
@@ -17,8 +23,6 @@ const GenealogyItem = ({ _id, firstName, lastName, imageUrl, category }) => {
           </h4>
         </Link>
       </div>
-    </li>
+    </GenealogyItem>
   );
 };
-
-export default GenealogyItem;
