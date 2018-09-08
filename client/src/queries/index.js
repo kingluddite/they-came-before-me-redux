@@ -87,6 +87,9 @@ export const GET_USER_GENEALOGIES = gql`
       firstName
       lastName
       likes
+      imageUrl
+      category
+      description
     }
   }
 `;
@@ -97,6 +100,34 @@ export const DELETE_USER_GENEALOGY = gql`
   mutation($_id: ID!) {
     deleteUserGenealogy(_id: $_id) {
       _id
+    }
+  }
+`;
+
+export const UPDATE_USER_GENEALOGY = gql`
+  mutation(
+    $_id: ID!
+    $firstName: String!
+    $lastName: String!
+    $imageUrl: String!
+    $category: String!
+    $description: String
+  ) {
+    updateUserGenealogy(
+      _id: $_id
+      firstName: $firstName
+      lastName: $lastName
+      imageUrl: $imageUrl
+      category: $category
+      description: $description
+    ) {
+      _id
+      firstName
+      lastName
+      likes
+      category
+      imageUrl
+      description
     }
   }
 `;

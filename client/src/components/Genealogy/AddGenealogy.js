@@ -133,6 +133,7 @@ class AddGenealogy extends Component {
                 className="form"
                 onSubmit={event => this.handleSubmit(event, addGenealogy)}
               >
+                <label htmlFor="firstName">First Name</label>
                 <input
                   type="text"
                   name="firstName"
@@ -140,6 +141,7 @@ class AddGenealogy extends Component {
                   onChange={this.handleChange}
                   value={firstName}
                 />
+                <label htmlFor="lastName">Last Name</label>
                 <input
                   type="text"
                   name="lastName"
@@ -147,6 +149,7 @@ class AddGenealogy extends Component {
                   onChange={this.handleChange}
                   value={lastName}
                 />
+                <label htmlFor="imageUrl">Genealogy Image URL</label>
                 <input
                   type="text"
                   name="imageUrl"
@@ -154,6 +157,7 @@ class AddGenealogy extends Component {
                   onChange={this.handleChange}
                   value={imageUrl}
                 />
+                <label htmlFor="category">Category</label>
                 <select
                   name="category"
                   onChange={this.handleChange}

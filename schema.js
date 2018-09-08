@@ -37,6 +37,7 @@ exports.typeDefs = `
   type Mutation {
     addGenealogy(firstName: String!, lastName: String!, imageUrl: String!, category: String!, description: String, username: String): Genealogy
     deleteUserGenealogy(_id: ID): Genealogy
+    updateUserGenealogy(_id: ID!, firstName: String!, lastName: String!, imageUrl: String!, category: String!, description: String): Genealogy
     likeGenealogy(_id: ID!, username: String!): Genealogy
     unlikeGenealogy(_id: ID!, username: String!): Genealogy
 

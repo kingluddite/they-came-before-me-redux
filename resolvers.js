@@ -55,6 +55,7 @@ exports.resolvers = {
       });
       return user;
     },
+
     getUserGenealogies: async (root, { username }, { Genealogy }) => {
       const userGenealogies = await Genealogy.find({ username }).sort({
         createdDate: 'desc',
@@ -81,11 +82,6 @@ exports.resolvers = {
       return newGenealogy;
     },
 
-    deleteUserGenealogy: async (root, { _id }, { Genealogy }) => {
-      const genealogy = await Genealogy.findOneAndRemove({ _id });
-      return genealogy;
-    },
-
     likeGenealogy: async (root, { _id, username }, { Genealogy, User }) => {
       const genealogy = await Genealogy.findOneAndUpdate(
         { _id },
@@ -108,6 +104,24 @@ exports.resolvers = {
         { $pull: { favorites: _id } }
       );
       return genealogy;
+    },
+
+    deleteUserGenealogy: async (root, { _id }, { Genealogy }) => {
+      const genealogy = await Genealogy.findOneAndRemove({ _id });
+      return genealogy;
+    },
+
+    updateUserGenealogy: async (
+      root,
+      { _id, firstName, lastName, imageUrl, category, description },
+      { Genealogy }
+    ) => {
+      const updatedGenealogy = await Genealogy.findOneAndUpdate(
+        { _id },
+        { $set: { firstName, lastName, imageUrl, category, description } },
+        { new: true }
+      );
+      return updatedGenealogy;
     },
 
     signupUser: async (root, { username, email, password }, { User }) => {
